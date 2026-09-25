@@ -29,19 +29,29 @@ This is basically why the algorithm works in real life — it's designed to catc
 
 How the code is organized
 isValid() – runs all the checks and gives the final yes/no answer.
-getSize() – counts how many digits are in a number.
-prefixMatched() / getPrefix() – used to check what the card number starts with (e.g. does it start with "37"?).
-sumOfDoubleEvenPlace() – handles the doubling part of the Luhn check.
-sumOfOddPlace() – adds up the digits that don't get doubled.
-getDigit() – helper that collapses a two-digit number into a single digit by adding its digits.
-How it works (short version)
-getSize() counts digits by dividing by 10 until nothing's left.
-getPrefix() grabs the first k digits by stripping digits off the end (dividing by 10 repeatedly) until only k digits remain — that's how prefixMatched() checks things like "does this start with 37?".
-sumOfOddPlace() adds up every other digit starting from the rightmost one, using n % 10 to grab a digit and n /= 100 to skip two at a time.
-sumOfDoubleEvenPlace() does the same skip-by-100 pattern, but shifts right by one digit first (number / 10) so it lands on the other set of digits, then doubles each one and folds it down to a single digit with getDigit() if it goes over 9 (e.g. 8 → 16 → 1+6 → 7).
-isValid() adds both sums together — if the total divides evenly by 10, the card number passes the Luhn check.
-How to run it
 
+getSize() – counts how many digits are in a number.
+
+prefixMatched() / getPrefix() – used to check what the card number starts with (e.g. does it start with "37"?).
+
+sumOfDoubleEvenPlace() – handles the doubling part of the Luhn check.
+
+sumOfOddPlace() – adds up the digits that don't get doubled.
+
+getDigit() – helper that collapses a two-digit number into a single digit by adding its digits.
+
+How it work
+getSize() counts digits by dividing by 10 until nothing's left.
+
+getPrefix() grabs the first k digits by stripping digits off the end (dividing by 10 repeatedly) until only k digits remain — that's how prefixMatched() checks things like "does this start with 37?".
+
+sumOfOddPlace() adds up every other digit starting from the rightmost one, using n % 10 to grab a digit and n /= 100 to skip two at a time.
+
+sumOfDoubleEvenPlace() does the same skip-by-100 pattern, but shifts right by one digit first (number / 10) so it lands on the other set of digits, then doubles each one and folds it down to a single digit with getDigit() if it goes over 9 (e.g. 8 → 16 → 1+6 → 7).
+
+isValid() adds both sums together — if the total divides evenly by 10, the card number passes the Luhn check.
+
+How to run it
 Compile it with any C++ compiler, for example:
 
 g++ credit_card.cpp -o credit_card
