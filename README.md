@@ -42,18 +42,22 @@ EGERU MICHAEL
 
 ## 4. Project Structure
 
+## 4. Project Structure
+
+```text
 CPP-Data-Visualization-Library/
-`├── data`
-    ``├──input`` --all data inputs go here
-    ``├──output`` --all exported images come here
-`├── examples/`
-`├── include/`
-        ``├──dataviz`` -- all header files come here
-`├── reports/`
-`├── src/`  -- all cpp files come here
-`├── tests/` all tests
-`├── CMakeLists.txt`
-`├── README.md`
+├── data/
+│   ├── input/      -- all data inputs go here
+│   └── output/     -- all exported images come here
+├── examples/
+├── include/
+│   └── dataviz/    -- all header files come here
+├── reports/
+├── src/            -- all cpp files come here
+├── tests/          -- all tests
+├── CMakeLists.txt
+└── README.md
+```
 
 ## 5. Requirements
 
